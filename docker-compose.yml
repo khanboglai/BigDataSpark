@@ -38,18 +38,18 @@ services:
     tty: true
     stdin_open: true
 
-#  clickhouse:
-#    image: clickhouse/clickhouse-server:latest
-#    container_name: clickhouse
-#    ports:
-#      - "8123:8123"  # HTTP interface for queries
-#      - "9000:9000"  # Native TCP interface
-#      - "9009:9009"  # For replication (optional)
-#    volumes:
-#      - ./clickhouse-config/users.xml:/etc/clickhouse-server/users.xml
-#      - clickhouse_data:/var/lib/clickhouse
-#    networks:
-#      - spark-network
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse
+    ports:
+      - "8123:8123"  # HTTP interface for queries
+      - "9000:9000"  # Native TCP interface
+      - "9009:9009"  # For replication (optional)
+    volumes:
+      - ./clickhouse-config/users.xml:/etc/clickhouse-server/users.xml
+      - clickhouse_data:/var/lib/clickhouse
+    networks:
+      - spark-network
 
   # Apache Spark Master
   spark-master:
